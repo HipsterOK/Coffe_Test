@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="header_style">
+        <item name="android:background">@drawable/header</item>
+        <item name="android:fontFamily">@font/sfuidisplay_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="auth_text_style">
+        <item name="android:fontFamily">@font/sfuidisplay_bold</item>
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:gravity">bottom</item>
+    </style>
+
+    <style name="auth_input_style">
+        <item name="android:background">@drawable/shape_text</item>
+        <item name="android:fontFamily">@font/sfuidisplay_bold</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+    </style>
+
+    <style name="btn_style">
+        <item name="android:background">@drawable/shape_btn</item>
+        <item name="android:fontFamily">@font/sfuidisplay_bold</item>
+        <item name="android:textColor">#F6E5D1</item>
+    </style>
+</resources>

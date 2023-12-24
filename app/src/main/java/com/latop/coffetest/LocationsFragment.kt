@@ -6,24 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import com.latop.coffetest.databinding.FragmentLoginBinding
+import com.latop.coffetest.databinding.FragmentLocationsBinding
 
-class LoginFragment : Fragment() {
+class LocationsFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentLocationsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = FragmentLocationsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.goToRegistration.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registrationFragment)
+        binding.goToLogin.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_registrationFragment_to_loginFragment)
         }
     }
 

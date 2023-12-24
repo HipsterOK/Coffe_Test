@@ -7,22 +7,33 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.latop.coffetest.LoginFragment"
+        android:name="com.latop.coffetest.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.latop.coffetest.RegistrationFragment"
+        android:name="com.latop.coffetest.registration.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" >
         <action
             android:id="@+id/action_registrationFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.latop.coffetest.LocationsFragment"
+        android:label="fragment_locations"
+        tools:layout="@layout/fragment_locations" />
 
 </navigation>

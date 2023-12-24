@@ -4,9 +4,8 @@ import android.content.Context
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
-import android.os.Bundle
 import androidx.core.content.ContextCompat
-import com.latop.coffetest.network.Point
+import com.latop.coffetest.data.Point
 
 class LocationProvider(private val context: Context, private val listener: LocationListener) {
 

@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.latop.coffetest.network.Location
-import kotlinx.coroutines.launch
+import com.latop.coffetest.data.Location
 import com.yandex.mapkit.MapKitFactory
-import com.yandex.mapkit.geometry.Point
+import kotlinx.coroutines.launch
 
 class LocationsViewModel(private val locationsRepository: LocationsRepository) : ViewModel() {
 

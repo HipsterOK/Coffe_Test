@@ -10,8 +10,8 @@ import com.yandex.mapkit.MapKitFactory
 
 class MainActivity : AppCompatActivity() {
 
-    private val REQUEST_LOCATION_PERMISSION = 1 // You can use any unique integer value
-    private val REQUEST_INTERNET_PERMISSION = 2 // You can use any unique integer value
+    private val REQUEST_LOCATION_PERMISSION = 1
+    private val REQUEST_INTERNET_PERMISSION = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,30 +20,23 @@ class MainActivity : AppCompatActivity() {
         MapKitFactory.initialize(this)
 
         if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
+                this, Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
         ) {
-        } else {
             ActivityCompat.requestPermissions(
-                this,
-                arrayOf(
+                this, arrayOf(
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_COARSE_LOCATION
-                ),
-                REQUEST_LOCATION_PERMISSION
+                ), REQUEST_LOCATION_PERMISSION
             )
         }
 
         if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.INTERNET
+                this, Manifest.permission.INTERNET
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.INTERNET),
-                REQUEST_INTERNET_PERMISSION
+                this, arrayOf(Manifest.permission.INTERNET), REQUEST_INTERNET_PERMISSION
             )
         }
     }

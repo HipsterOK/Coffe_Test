@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.navigation.Navigation
 import com.latop.coffetest.R
 import com.latop.coffetest.databinding.FragmentMapBinding
-import com.latop.coffetest.network.Location
+import com.latop.coffetest.data.Location
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.mapview.MapView
@@ -41,8 +41,8 @@ class MapFragment : Fragment() {
         }
 
         var cafes = emptyList<Location>()
-        arguments?.let {
-            cafes = it.getParcelableArray("cafes")?.map { it as Location } ?: emptyList()
+        arguments?.let { it1 ->
+            cafes = it1.getParcelableArray("cafes")?.map { it as Location } ?: emptyList()
         }
         showCafesOnMap(token, binding.mapView, cafes)
     }

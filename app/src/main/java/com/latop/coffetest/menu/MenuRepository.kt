@@ -1,7 +1,7 @@
 package com.latop.coffetest.menu
 
 import com.latop.coffetest.network.ApiService
-import com.latop.coffetest.network.MenuItem
+import com.latop.coffetest.data.MenuItem
 
 class MenuRepository(private val apiService: ApiService) {
     suspend fun getMenu(token: String, id: Int): List<MenuItem> {

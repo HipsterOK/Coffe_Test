@@ -58,11 +58,8 @@ class LoginFragment : Fragment() {
                         val jsonObject = JSONObject(responseBody.string())
                         val token = jsonObject.getString("token")
 
-                        Toast.makeText(
-                            requireContext(), "Регистрация прошла успешно!", Toast.LENGTH_SHORT
-                        ).show()
-                        Navigation.findNavController(view).navigate(
-                                R.id.action_loginFragment_to_locationsFragment,
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_loginFragment_to_locationsFragment,
                                 Bundle().apply {
                                     putString("token", token)
                                 })

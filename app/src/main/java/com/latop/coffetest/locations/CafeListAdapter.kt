@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.latop.coffetest.LocationProvider
 import com.latop.coffetest.MyLocationListener
 import com.latop.coffetest.databinding.ItemCafeBinding
-import com.latop.coffetest.network.Location
-import com.latop.coffetest.network.Point
+import com.latop.coffetest.data.Location
+import com.latop.coffetest.data.Point
 import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.roundToInt
@@ -33,9 +33,7 @@ class CafeListAdapter(
     override fun onBindViewHolder(holder: CafeListViewHolder, position: Int) {
         val cafe = dataList[position]
 
-        val locationProvider = LocationProvider(context, MyLocationListener { _ ->
-            // Handle user location update
-        })
+        val locationProvider = LocationProvider(context, MyLocationListener { _ -> })
         locationProvider.requestLocationUpdates()
         val userLocation = locationProvider.getLastKnownLocation()
         locationProvider.removeLocationUpdates()

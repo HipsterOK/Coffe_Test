@@ -1,18 +1,16 @@
 package com.latop.coffetest.locations
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.latop.coffetest.R
 import com.latop.coffetest.databinding.FragmentLocationsBinding
-import com.latop.coffetest.login.LoginRepository
-import com.latop.coffetest.login.LoginViewModel
-import com.latop.coffetest.login.LoginViewModelFactory
 import com.latop.coffetest.network.ApiService
 
 class LocationsFragment : Fragment(), CafeItemClickListener {
@@ -61,6 +59,8 @@ class LocationsFragment : Fragment(), CafeItemClickListener {
                 binding.coffeList.layoutManager = LinearLayoutManager(requireContext())
                 binding.coffeList.adapter = customAdapter
             } else {
+                Toast.makeText(requireContext(), "Нет доступных кафе!", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 

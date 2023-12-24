@@ -1,20 +1,11 @@
 package com.latop.coffetest.menu
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.latop.coffetest.databinding.ItemCafeBinding
 import com.latop.coffetest.databinding.ItemMenuBinding
-import com.latop.coffetest.network.Location
-import com.latop.coffetest.network.MenuItem
-import com.latop.coffetest.network.Point
-import kotlin.math.atan2
-import kotlin.math.cos
-import kotlin.math.roundToInt
-import kotlin.math.sin
-import kotlin.math.sqrt
+import com.latop.coffetest.data.MenuItem
 
 class MenuListAdapter(
     private val dataList: List<MenuItem>, private val viewModel: MenuViewModel
@@ -41,7 +32,7 @@ class MenuListAdapter(
 
         fun bind(menuItem: MenuItem) {
             binding.name.text = menuItem.name
-            binding.price.text = "${menuItem.price.toString()} руб"
+            binding.price.text = "${menuItem.price} руб"
             binding.count.text = menuItem.count.toString()
 
             binding.plus.setOnClickListener {

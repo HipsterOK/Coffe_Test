@@ -4,17 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.latop.coffetest.R
 import com.latop.coffetest.databinding.FragmentMenuBinding
-import com.latop.coffetest.locations.CafeListAdapter
-import com.latop.coffetest.login.LoginRepository
-import com.latop.coffetest.login.LoginViewModel
-import com.latop.coffetest.login.LoginViewModelFactory
 import com.latop.coffetest.network.ApiService
 
 class MenuFragment : Fragment() {
@@ -50,10 +46,23 @@ class MenuFragment : Fragment() {
         }
 
         binding.goToOrder.setOnClickListener {
-            Navigation.findNavController(view)
-                .navigate(R.id.action_menuFragment_to_locationsFragment, Bundle().apply {
+            val selectedMenuItems = menuViewModel.menuItems.value?.filter { it.count > 0 }
+
+            println(selectedMenuItems)
+            println(menuViewModel.menuItems.value)
+            println(menuViewModel.menuResponse.value)
+
+            if (selectedMenuItems?.isNotEmpty() == true) {
+                val bundle = Bundle().apply {
                     putString("token", token)
-                })
+                    putParcelableArrayList("selectedMenuItems", ArrayList(selectedMenuItems))
+                    id?.let { it1 -> putInt("id", it1) }
+                }
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_menuFragment_to_orderFragment, bundle)
+            } else {
+                Toast.makeText(requireContext(), "Корзина пуста!", Toast.LENGTH_SHORT).show()
+            }
         }
 
         menuViewModel.menuResponse.observe(viewLifecycleOwner) { menu ->
@@ -64,6 +73,7 @@ class MenuFragment : Fragment() {
                 val adapter = MenuListAdapter(menu, menuViewModel)
                 binding.recyclerView.adapter = adapter
             } else {
+                Toast.makeText(requireContext(), "Пустое меню!", Toast.LENGTH_SHORT).show()
             }
         }
 

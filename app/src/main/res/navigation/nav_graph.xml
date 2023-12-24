@@ -32,8 +32,24 @@
     </fragment>
     <fragment
         android:id="@+id/locationsFragment"
-        android:name="com.latop.coffetest.LocationsFragment"
+        android:name="com.latop.coffetest.locations.LocationsFragment"
         android:label="fragment_locations"
-        tools:layout="@layout/fragment_locations" />
+        tools:layout="@layout/fragment_locations" >
+        <action
+            android:id="@+id/action_locationsFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_locationsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.latop.coffetest.map.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
+    </fragment>
 
 </navigation>

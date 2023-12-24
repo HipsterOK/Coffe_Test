@@ -2,25 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
     android:background="@drawable/shape_cafe_item"
+    android:elevation="2dp"
     android:orientation="vertical"
     android:padding="8dp">
 
     <TextView
         android:id="@+id/name"
-        android:textColor="@color/brown"
-        android:textStyle="bold"
-        android:textSize="22sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/brown"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/distance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
+        android:text="TextView"
         android:textColor="#AF9479"
-        android:textSize="18sp"
-        android:text="TextView" />
+        android:textSize="18sp" />
 </LinearLayout>

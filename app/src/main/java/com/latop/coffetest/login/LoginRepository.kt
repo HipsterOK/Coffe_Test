@@ -1,7 +1,7 @@
 package com.latop.coffetest.login
 
-import com.latop.coffetest.ApiService
-import com.latop.coffetest.LoginRequestBody
+import com.latop.coffetest.network.ApiService
+import com.latop.coffetest.network.LoginRequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
 

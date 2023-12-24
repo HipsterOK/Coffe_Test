@@ -1,4 +1,4 @@
-package com.latop.coffetest
+package com.latop.coffetest.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

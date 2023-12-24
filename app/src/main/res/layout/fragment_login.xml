@@ -79,7 +79,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_weight="1"
-            android:paddingTop="8dp"
             android:text="Войти" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -89,7 +88,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_weight="1"
-            android:paddingTop="8dp"
             android:text="Регистрация" />
     </LinearLayout>
 

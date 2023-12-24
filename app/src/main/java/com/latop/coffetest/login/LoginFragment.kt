@@ -8,12 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.latop.coffetest.ApiService
+import com.latop.coffetest.network.ApiService
 import com.latop.coffetest.R
 import com.latop.coffetest.databinding.FragmentLoginBinding
-import com.latop.coffetest.registration.RegistrationRepository
-import com.latop.coffetest.registration.RegistrationViewModel
-import com.latop.coffetest.registration.RegistrationViewModelFactory
 import org.json.JSONException
 import org.json.JSONObject
 

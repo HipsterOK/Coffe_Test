@@ -2,4 +2,20 @@
     <string name="app_name">Coffe Test</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cafe_close">Ближайшие кофейни</string>
+    <string name="login">Вход</string>
+    <string name="email">e-mail</string>
+    <string name="pass">Пароль</string>
+    <string name="example_example_ru">example@example.ru</string>
+    <string name="registration">Регистрация</string>
+    <string name="login_btn">Войти</string>
+    <string name="pass_invisible">******</string>
+    <string name="map">Карта</string>
+    <string name="go_to_order">Перейти к оплате</string>
+    <string name="menu">Меню</string>
+    <string name="order">Ваш заказ</string>
+    <string name="pay">Оплатить</string>
+    <string name="payed_message">Время ожидания заказа 15 минут! Спасибо, что выбрали нас!</string>
+    <string name="repeat_pass">Повторите пароль</string>
+    <string name="_0">0</string>
 </resources>

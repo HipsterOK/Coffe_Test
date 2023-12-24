@@ -19,7 +19,7 @@
         style="@style/header_style"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Меню"
+        android:text="@string/menu"
         app:layout_constraintBottom_toTopOf="@+id/guideline1111"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
-        android:text="Перейти к оплате"
+        android:text="@string/go_to_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -36,7 +36,6 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/sfuidisplay_bold"
-            android:text="TextView"
             android:textColor="#AF9479"
             android:textSize="16sp"
             android:textStyle="normal"
@@ -51,7 +50,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/sfuidisplay_bold"
-            android:text="TextView"
             android:textColor="#846340"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -84,7 +82,7 @@
                 android:layout_weight="1.2"
                 android:fontFamily="@font/sfuidisplay_bold"
                 android:gravity="center"
-                android:text="0"
+                android:text="@string/_0"
                 android:textColor="#846340" />
 
             <ImageView

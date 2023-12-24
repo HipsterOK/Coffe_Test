@@ -17,7 +17,7 @@
         style="@style/header_style"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Регистрация"
+        android:text="@string/registration"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.1"
-            android:text="e-mail" />
+            android:text="@string/email" />
 
         <EditText
             android:id="@+id/email_input"
@@ -49,16 +49,17 @@
             android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="example@example.ru"
+            android:hint="@string/example_example_ru"
             android:inputType="textEmailAddress"
-            android:paddingTop="8dp" />
+            android:paddingTop="8dp"
+            android:autofillHints="" />
 
         <TextView
             style="@style/auth_text_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.1"
-            android:text="Пароль" />
+            android:text="@string/pass" />
 
         <EditText
             android:id="@+id/password_input"
@@ -68,16 +69,17 @@
             android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="******"
+            android:hint="@string/pass_invisible"
             android:inputType="textPassword"
-            android:paddingTop="8dp" />
+            android:paddingTop="8dp"
+            android:autofillHints="" />
 
         <TextView
             style="@style/auth_text_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.1"
-            android:text="Повторите пароль" />
+            android:text="@string/repeat_pass" />
 
         <EditText
             android:id="@+id/repeat_password_input"
@@ -86,9 +88,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="******"
+            android:hint="@string/pass_invisible"
             android:inputType="textPassword"
-            android:paddingTop="8dp" />
+            android:paddingTop="8dp"
+            android:autofillHints="" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/register"
@@ -98,7 +101,7 @@
             android:layout_marginTop="24dp"
 
             android:layout_weight="1"
-            android:text="Регистрация" />
+            android:text="@string/registration" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline

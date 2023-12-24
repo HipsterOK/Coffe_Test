@@ -1,35 +1,25 @@
 package com.latop.coffetest.map
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.latop.coffetest.R
 import com.latop.coffetest.databinding.FragmentMapBinding
-import com.latop.coffetest.locations.LocationsRepository
-import com.latop.coffetest.locations.LocationsViewModel
-import com.latop.coffetest.locations.LocationsViewModelFactory
-import com.latop.coffetest.network.ApiService
 import com.latop.coffetest.network.Location
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.mapview.MapView
-import com.yandex.runtime.image.ImageProvider
 import com.yandex.runtime.ui_view.ViewProvider
 
 class MapFragment : Fragment() {
 
     private lateinit var binding: FragmentMapBinding
-    private val locationsViewModel: LocationsViewModel by lazy {
-        ViewModelProvider(
-            this, LocationsViewModelFactory(LocationsRepository(ApiService.create()))
-        )[LocationsViewModel::class.java]
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -54,10 +44,10 @@ class MapFragment : Fragment() {
         arguments?.let {
             cafes = it.getParcelableArray("cafes")?.map { it as Location } ?: emptyList()
         }
-        showCafesOnMap(binding.mapView, cafes)
+        showCafesOnMap(token, binding.mapView, cafes)
     }
 
-    private fun showCafesOnMap(mapView: MapView, cafes: List<Location>) {
+    private fun showCafesOnMap(token: String?, mapView: MapView, cafes: List<Location>) {
         for (cafe in cafes) {
             val cafePoint = Point(cafe.point.latitude.toDouble(), cafe.point.longitude.toDouble())
 
@@ -72,8 +62,24 @@ class MapFragment : Fragment() {
 
             val placemark = mapView.map.mapObjects.addPlacemark(cafePoint)
 
+            placemark.addTapListener { _, _ ->
+                Log.i("map", cafe.id.toString())
+                navigateToCafeMenu(cafe.id, token)
+                true
+            }
+
             placemark.setView(ViewProvider(view))
         }
+    }
+
+    private fun navigateToCafeMenu(cafeId: Int, token: String?) {
+        val bundle = Bundle().apply {
+            putInt("id", cafeId)
+            putString("token", token)
+        }
+
+        Navigation.findNavController(requireView())
+            .navigate(R.id.action_mapFragment_to_menuFragment, bundle)
     }
 
 

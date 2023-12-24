@@ -15,7 +15,7 @@ import com.latop.coffetest.login.LoginViewModel
 import com.latop.coffetest.login.LoginViewModelFactory
 import com.latop.coffetest.network.ApiService
 
-class LocationsFragment : Fragment() {
+class LocationsFragment : Fragment(), CafeItemClickListener {
 
     private lateinit var binding: FragmentLocationsBinding
     private val locationsViewModel: LocationsViewModel by lazy {
@@ -56,13 +56,24 @@ class LocationsFragment : Fragment() {
 
         locationsViewModel.locationsResponse.observe(viewLifecycleOwner) { locations ->
             if (locations.isNotEmpty()) {
-                val customAdapter = CafeListAdapter(requireContext(), locations)
+                val customAdapter =
+                    CafeListAdapter(requireContext(), token.toString(), locations, this)
                 binding.coffeList.layoutManager = LinearLayoutManager(requireContext())
                 binding.coffeList.adapter = customAdapter
             } else {
             }
         }
 
+    }
+
+    override fun onCafeItemClick(token: String, cafeId: Int) {
+        view?.let {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_locationsFragment_to_menuFragment, Bundle().apply {
+                    putString("token", token)
+                    putInt("id", cafeId)
+                })
+        }
     }
 
 }

@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_locationsFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_locationsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
@@ -49,6 +52,18 @@
         tools:layout="@layout/fragment_map" >
         <action
             android:id="@+id/action_mapFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.latop.coffetest.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_locationsFragment"
             app:destination="@id/locationsFragment" />
     </fragment>
 

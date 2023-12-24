@@ -61,5 +61,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
     implementation("com.yandex.android:maps.mobile:4.4.0-lite")
+    implementation("com.github.bumptech.glide:glide:4.14.2")
 
 }

@@ -2,6 +2,7 @@ package com.latop.coffetest.locations
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.latop.coffetest.LocationProvider
@@ -17,7 +18,9 @@ import kotlin.math.sqrt
 
 class CafeListAdapter(
     private val context: Context,
+    private val token: String,
     private val dataList: List<Location>,
+    private val clickListener: CafeItemClickListener
 ) : RecyclerView.Adapter<CafeListAdapter.CafeListViewHolder>() {
 
     private lateinit var binding: ItemCafeBinding
@@ -47,7 +50,18 @@ class CafeListAdapter(
     }
 
     inner class CafeListViewHolder(private val binding: ItemCafeBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(view: View?) {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                val cafe = dataList[position]
+                clickListener.onCafeItemClick(token, cafe.id)
+            }
+        }
 
         fun bind(cafe: Location, formattedDistance: String) {
             binding.name.text = cafe.name

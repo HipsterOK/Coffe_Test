@@ -2,30 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginFragment">
+    tools:context=".menu.MenuFragment">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
+        android:id="@+id/guideline1111"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.06" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView2"
         style="@style/header_style"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Ближайшие кофейни"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        android:text="Меню"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1111"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/go_to_location"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/go_to_map"
+        android:id="@+id/go_to_order"
         style="@style/btn_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,34 +46,22 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
-        android:text="На карте"
+        android:text="Перейти к оплате"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/go_to_login"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/coffe_list"
+        android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/go_to_map"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/go_to_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline11" />
+        app:layout_constraintTop_toTopOf="@+id/guideline1111" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

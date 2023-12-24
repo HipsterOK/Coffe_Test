@@ -8,15 +8,19 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 data class LoginRequestBody(
     val login: String, val password: String
 )
 
+data class MenuItem(
+    val id: Int, val name: String, val imageURL: String, val price: Int, var count: Int = 0
+)
+
+
 data class Location(
-    val id: Int,
-    val name: String,
-    val point: Point
+    val id: Int, val name: String, val point: Point
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -46,12 +50,10 @@ data class Location(
 }
 
 data class Point(
-    val latitude: String,
-    val longitude: String
+    val latitude: String, val longitude: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString()!!,
-        parcel.readString()!!
+        parcel.readString()!!, parcel.readString()!!
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -83,6 +85,11 @@ interface ApiService {
 
     @GET("locations")
     suspend fun getLocations(@Header("Authorization") token: String): List<Location>
+
+    @GET("/location/{id}/menu")
+    suspend fun getMenu(
+        @Header("Authorization") token: String, @Path("id") cafeId: Int
+    ): List<MenuItem>
 
     companion object {
         fun create(): ApiService {
